@@ -1,4 +1,3 @@
-<?php
 // function definitionOfVictory($comp,$player,$col) : string{
 // 	$result = ($comp - $player + $col + (int)($col/2))% $col - (int)($col/2);
 // 	return $result;
@@ -60,36 +59,3 @@
 // 	else 
 // 		print("Draw\n");
 // }
-
-include_once ('ini.php');
-
-use Game\Core;
-use Game\HmacGenerator;
-use Game\KeyGenerator;
-use Game\TableGenerator;
-use Game\WinRules;
-
-$hmacGenerator = new HmacGenerator();
-$keyGenerator = new KeyGenerator();
-$tableGenerator = new TableGenerator();
-$winRules = new WinRules();
-
-$arrMoves = array_slice($argv,1);
-
-$game = new Core($arrMoves, $hmacGenerator, $keyGenerator, $tableGenerator , $winRules);
-
-print($game->step());
-$playerChoice = "-1";
-
-while (!((int)$playerChoice>0 && (int)$playerChoice<count($arrMoves))){
-	print($game->menu());
-	$playerChoice = $game->readPlayerChoice();
-	if($playerChoice === "0")
-		return;
-	if($playerChoice === "?"){
-		print($game->rulesTable());
-		continue;
-	}
-	print($game->resultGame());
-}
-
