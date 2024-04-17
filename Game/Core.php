@@ -61,12 +61,10 @@ class Core {
         $this->playerChoice = $playerChoice-1;
     }
 
-    public function rulesTable() : string{
-        $table = $this->tableGenerator
-                    ->setMoves($this->arrMoves)
-                    ->createTable();
-
-        return $table;
+    public function rulesTable() : void{
+        $this->tableGenerator
+            ->setMoves($this->arrMoves)
+            ->createTable();
     }
 
     public function resultGame() : string{
@@ -84,6 +82,7 @@ class Core {
         $rand = random_int(0,count($this->arrMoves)-1);
         return $rand;
     }
+
     private function validateArray() : string{
         if (count($this->arrMoves) < 3)
             return ("Enter an odd number of arguments, 3 or more!\nFor example: rock paper scissors.");

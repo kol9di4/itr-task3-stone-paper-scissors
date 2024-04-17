@@ -36,14 +36,7 @@
 // 		print("HMAC:".strtoupper($hmac)."\n");
 // 		return $rand;
 // 	};
-// 	if (count($arr) < 3){
-// 		print("Enter an odd number of arguments, 3 or more!\nFor example: rock paper scissors.");
-// 		return;
-// 	}
-// 	if (count($arr)%2 === 0){
-// 		print("Enter an odd number of arguments!\nFor example: rock paper scissors.");
-// 		return;
-// 	}
+
 // 	$cHod = $compStep();
 // 	$printMenu();
 

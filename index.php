@@ -26,7 +26,7 @@ if ($resultPushArray !== "OK"){
 print($game->step());
 $playerChoice = "-1";
 
-while (!((int)$playerChoice>0 && (int)$playerChoice<=count($arrMoves))){
+while (true){
 	print($game->menu());
 	$playerChoice = $game->readPlayerChoice();
 	if($playerChoice === "0")
@@ -40,6 +40,7 @@ while (!((int)$playerChoice>0 && (int)$playerChoice<=count($arrMoves))){
 		continue;
 	}
 	$game->setPlayerChoice($playerChoice);
+	break;
 }
 print($game->resultGame());
 
